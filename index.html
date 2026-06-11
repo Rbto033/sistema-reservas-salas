@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,9 +8,10 @@
     <title>GetSala | Reserva Tu Sala</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <!-- CABECERA -->
-    <header id = "inicio">
+    <header id="inicio">
         <h1>GetSala</h1>
         <h2>Sistema de Reservas de Salas</h2>
         <p>Universidad de Talca</p>
@@ -45,64 +47,70 @@
                 <tr>
                     <td>Sala A1</td>
                     <td>4 personas</td>
-                    <td style="color: green; font-weight: bold;">Disponible</td>
+                    <td id="estado-a1" class="estado-disponible">Disponible</td>
                 </tr>
                 <tr>
                     <td>Sala B1</td>
                     <td>8 personas</td>
-                    <td style="color: green; font-weight: bold;">Disponible</td>
+                    <td id="estado-b1" class="estado-disponible">Disponible</td>
                 </tr>
                 <tr>
                     <td>Sala B2</td>
                     <td>8 personas</td>
-                    <td style="color: red; font-weight: bold;">Ocupada</td>
+                    <td id="estado-b2" class="estado-ocupada">Ocupada</td>
                 </tr>
             </table>
         </section>
 
         <!-- formulario para hacer una reserva -->
-         <section class="formulario">
+        <section class="formulario" id="reserva">
             <h2>Hacer una Reserva</h2>
 
-            <!-- datos del estudiante -->
-            <label for="nombre">Nombre completo:</label>
-            <input type="text" id="nombre" name="nombre" placeholder="Ej: Juan Perez">
+            <form id="form-reserva">
+                <!-- datos del estudiante -->
+                <label for="nombre">Nombre completo:</label>
+                <input type="text" id="nombre" name="nombre" placeholder="Ej: Juan Perez" required>
 
-            <label for="rut">RUT:</label>
-            <input type="text" id="rut" name="rut" placeholder="Ej: 12345678-9">
+                <label for="rut-usuario">RUT:</label>
+                <input type="text" id="rut-usuario" name="rut" placeholder="12345678-K" inputmode="numeric"
+                    pattern="^[0-9]{7,8}-[0-9kK]{1}$" required>
 
-            <!-- seleccion de sala -->
-            <label for="sala">Sala:</label>
-            <select id="sala" name="sala">
-                <option value="">-- Selecciona una sala --</option>
-                <option value="a1">Sala A1 - 4 personas</option>
-                <option value="b1">Sala B1 - 8 personas</option>
-                <option value="b2">Sala B2 - 8 personas</option>
-            </select>
 
-            <!-- fecha y hora -->
-            <label for="fecha">Fecha:</label>
-            <input type="date" id="fecha" name="fecha">
 
-            <label for="hora_inicio">Hora de inicio:</label>
-            <input type="time" id="hora_inicio" name="hora_inicio">
+                <!-- seleccion de sala -->
+                <label for="sala">Sala:</label>
+                <select id="sala" name="sala" required>
+                    <option value="">-- Selecciona una sala --</option>
+                    <option value="a1">Sala A1 - 4 personas</option>
+                    <option value="b1">Sala B1 - 8 personas</option>
+                    <option value="b2">Sala B2 - 8 personas</option>
+                </select>
 
-            <label for="hora_fin">Hora de termino:</label>
-            <input type="time" id="hora_fin" name="hora_fin">
+                <!-- fecha y hora -->
+                <label for="fecha">Fecha:</label>
+                <input type="date" id="fecha" name="fecha" required>
 
-            <!-- boton para enviar -->
-            <button type="submit">Reservar</button>
+                <label for="hora_inicio">Hora de inicio:</label>
+                <input type="time" id="hora_inicio" name="hora_inicio" min="08:00" max="20:00" required>
+
+                <label for="hora_fin">Hora de termino:</label>
+                <input type="time" id="hora_fin" name="hora_fin" min="08:00" max="20:00" required>
+
+                <!-- boton para enviar -->
+                <button type="submit">Reservar</button>
+            </form>
         </section>
 
 
     </main>
 
-     <!-- PIE DE PAGINA -->
-    <footer id = "contacto">
+    <!-- PIE DE PAGINA -->
+    <footer id="contacto">
         <p>Sistema de Reservas de Salas &copy; 2026 &mdash; Universidad de Talca</p>
         <p>Contacto: getsala@utalca.cl</p>
     </footer>
 
-    <script src="app.js" defer></script>
+    <script src="script.js" defer></script>
 </body>
+
 </html>

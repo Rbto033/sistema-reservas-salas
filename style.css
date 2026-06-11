@@ -1,0 +1,9 @@
+.estado-disponible {
+    color: green;
+    font-weight: bold;
+}
+
+.estado-ocupada {
+    color: red;
+    font-weight: bold;
+}
