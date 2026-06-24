@@ -1,3 +1,4 @@
+/*
 // Seleccion de elementos del DOM
 // Capturamos los elementos del formulario (entradas)
 const formulario = document.getElementById('form-reserva');
@@ -72,3 +73,5 @@ maxFecha.setDate(hoy.getDate() + 7);
 // Formateamos las fechas a YYYY-MM-DD que es lo que acepta input type="date"
 inputFecha.min = hoy.toISOString().split('T')[0];
 inputFecha.max = maxFecha.toISOString().split('T')[0];
+
+*/

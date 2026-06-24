@@ -1,9 +1,235 @@
-.estado-disponible {
-    color: green;
+
+:root {
+    /* paleta de colores */
+    --color-primario: #b72a25; /* Azul marino */
+   --color-acento: #5e2007; /* marron para destacar al poner el cursor*/
+    --color-texto: #000000;
+    --fuente-principal: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* modelo de caja (box-sizing) */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* asegura que el padding no aumente el ancho total */
+}
+
+body {
+    font-family: var(--fuente-principal);
+    color: var(--color-texto);
+    background-color: #ffffff;
+    line-height: 1.6;
+    font-size: 20px;/* tamaño de fuente base */
+}
+
+
+
+/* CABECERA - uso de position relative */
+header#inicio {
+    /* Se añade una imagen de fondo con una capa oscura para legibilidad */
+    background-image: linear-gradient(rgba(255, 255, 255, 0.6), rgba(94, 91, 91, 0.6)), url('https://uninews.datoslab.cl/static/img/universidades/utalca.png');
+    background-size: cover;
+    background-position: center;
+    color: #ffffff; /* Color de texto blanco para contraste */
+    padding: 4rem 4rem; /* Uso de padding */
+    text-align: center;
+    position: relative; /* osicionamiento relative */
+    border-bottom: 5px solid var(--color-primario);
+}
+
+/* pseudo-elemento con posicionamiento absoluto */
+header#inicio h1 {
+    font-size: 2.5rem;
+    position: relative;
+}
+
+header#inicio h1::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background-color: var(--color-secundario); /* Cambiado a blanco para que combine */
+}
+
+/* navegacion - posicionamiento fijo/sticky */
+nav {
+    background-color: var(--color-primario);
+    position: sticky; /* se mantiene en la parte superior al hacer scroll */
+    top: 0;
+    z-index: 1000;
+    text-align: center;
+    padding: 1rem 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+/* selectores avanzados (combinador > y clase :hover) */
+nav > a {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    margin: 0 15px; /* uso de margen */
+    padding: 5px 10px;
     font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+nav > a:hover {
+    background-color: var(--color-acento);
+    border-radius: 4px;
+     text-decoration: underline; /* subraya el texto en blanco al pasar el cursor */
+}
+
+/* CONTENEDOR PRINCIPAL */
+main {
+    max-width: 900px;
+    margin: 2rem auto; /* centra el contenido */
+    padding: 1rem;
+}
+
+section {
+    margin-bottom: 2rem;
+}
+
+section h2 {
+    color: var(--color-primario);
+    margin-bottom: 1rem;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 0.5rem;
+}
+
+/*TABLA Y FORMULARIO */
+
+/* TABLA DE SALAS */
+table {
+    width: 100%;
+    border-collapse: collapse; /* Une los bordes */
+    margin-top: 1rem;
+}
+
+th, td {
+    border: 1px solid #aa2823; /*uso de bordes en la tabla de las salas */
+    padding: 12px;
+    text-align: center;
+}
+
+th {
+    background-color: var(--color-primario);
+    color: rgb(255, 255, 255);
+}
+
+/* selectores avanzados (Pseudoclase :nth-child)*/
+table tr:nth-child(even) {
+    background-color: #fdefef; /* filas pares de otro color para legibilidad */
+}
+
+table tr:hover {
+    background-color: #ffffff; /* Efecto hover en las filas */
+}
+
+/* clases de estado reutilizables */
+.estado-disponible {
+    color: #13bd3b;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+
+    
 }
 
 .estado-ocupada {
-    color: red;
+    color: #e00c21;
     font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+
+}
+
+/* FORMULARIO */
+.formulario {
+    background-color: #ffffff;
+    padding: 2rem;
+    border: 1px solid #be161677;
+    border-radius: 8px; /* bordes redondeados */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+/* selectores combinadores */
+#form-reserva label {
+    display: block;
+    margin-top: 1.5rem;
+    font-weight: 600;
+    color: var(--color-primario);
+}
+
+/* selecciona el primer label y le quita el margen superior */
+#form-reserva label:first-child {
+    margin-top: 0;
+}
+
+#form-reserva input,
+#form-reserva select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #000000d5;
+    border-radius: 4px;
+    font-family: var(--fuente-principal);
+}
+
+/* Pseudoclase :focus para accesibilidad */
+#form-reserva input:focus,
+#form-reserva select:focus {
+    outline: none;
+    border-color: var(--color-primario);
+    box-shadow: 0 0 5px rgba(0, 51, 102, 0.3);
+}
+
+button[type="submit"] {
+    display: block;
+    width: 100%;
+    background-color:#aa2823;
+    color: rgb(255, 255, 255);
+    border: none;
+    padding: 15px;
+    margin-top: 2rem;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button[type="submit"]:hover {
+    background-color: #166d16;    
+}
+
+/*PIE DE PÁGINA*/
+footer#contacto {
+    background-color: var(--color-primario);
+    color: white;
+    text-align: center;
+    padding: 2rem 1rem;
+    margin-top: 3rem;
+}
+
+/*DISEÑO RESPONSIVO*/
+@media (max-width: 600px) {
+    nav {
+        display: flex;
+        flex-direction: column; /* apila los enlaces en móviles */
+    }
+    
+    nav > a {
+        margin: 5px 0;
+    }
+
+    header#inicio h1 {
+        font-size: 2rem;
+    }
+
+    .formulario {
+        padding: 1rem; /* reduce el padding en pantallas pequeñas */
+    }
 }
