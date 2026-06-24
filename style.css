@@ -1,8 +1,8 @@
 
 :root {
     /* paleta de colores */
-    --color-primario: #b72a25; /* Azul marino */
-   --color-acento: #5e2007; /* marron para destacar al poner el cursor*/
+    --color-primario: #b72a25;
+   --color-acento: #5e2007; 
     --color-texto: #000000;
     --fuente-principal: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
@@ -11,7 +11,7 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box; /* asegura que el padding no aumente el ancho total */
+    box-sizing: border-box;
 }
 
 body {
@@ -19,7 +19,7 @@ body {
     color: var(--color-texto);
     background-color: #ffffff;
     line-height: 1.6;
-    font-size: 20px;/* tamaño de fuente base */
+    font-size: 20px;
 }
 
 
@@ -33,7 +33,7 @@ header#inicio {
     color: #ffffff; /* Color de texto blanco para contraste */
     padding: 4rem 4rem; /* Uso de padding */
     text-align: center;
-    position: relative; /* osicionamiento relative */
+    position: relative; /* posicionamiento relative */
     border-bottom: 5px solid var(--color-primario);
 }
 
@@ -51,7 +51,7 @@ header#inicio h1::after {
     transform: translateX(-50%);
     width: 60px;
     height: 4px;
-    background-color: var(--color-secundario); /* Cambiado a blanco para que combine */
+    background-color: var(--color-secundario);
 }
 
 /* navegacion - posicionamiento fijo/sticky */
