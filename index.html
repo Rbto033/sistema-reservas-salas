@@ -38,28 +38,21 @@
         <!-- tabla con las salas disponibles -->
         <section id="salas">
             <h2>Salas Disponibles</h2>
+            <div class="tabla-contenedor">
             <table>
+                <thead>
                 <tr>
                     <th>Sala</th>
                     <th>Capacidad</th>
                     <th>Estado</th>
                 </tr>
-                <tr>
-                    <td>Sala A1</td>
-                    <td>4 personas</td>
-                    <td id="estado-a1" class="estado-disponible">Disponible</td>
-                </tr>
-                <tr>
-                    <td>Sala B1</td>
-                    <td>8 personas</td>
-                    <td id="estado-b1" class="estado-disponible">Disponible</td>
-                </tr>
-                <tr>
-                    <td>Sala B2</td>
-                    <td>8 personas</td>
-                    <td id="estado-b2" class="estado-ocupada">Ocupada</td>
-                </tr>
+                </thead>
+                <tbody id="tabla-salas">
+                    <!-- Las filas se generan dinamicamente en script.js -->
+                </tbody>
+                
             </table>
+            </div>
         </section>
 
         <!-- formulario para hacer una reserva -->
@@ -81,9 +74,13 @@
                 <label for="sala">Sala:</label>
                 <select id="sala" name="sala" required>
                     <option value="">-- Selecciona una sala --</option>
+                    <!-- demostracion de que carga mediante JS
                     <option value="a1">Sala A1 - 4 personas</option>
                     <option value="b1">Sala B1 - 8 personas</option>
-                    <option value="b2">Sala B2 - 8 personas</option>
+                    <option value="b2">Sala B2 - 8 personas</option> -->
+
+                    <!-- Las opciones se generan dinamicamente en script.js -->
+
                 </select>
 
                 <!-- fecha y hora -->
